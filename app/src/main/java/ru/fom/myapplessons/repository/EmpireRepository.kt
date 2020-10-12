@@ -8,6 +8,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import ru.fom.myapplessons.data.Civilization
 import ru.fom.myapplessons.data.CivilizationList
+import ru.fom.myapplessons.data.Sections
 import ru.fom.myapplessons.net.Common
 import ru.fom.myapplessons.net.EmpireInterface
 
@@ -31,4 +32,9 @@ class EmpireRepository(private val retrofitService: EmpireInterface) {
         })
         return data
     }
+
+    fun getStaticSections(): List<Sections> {
+        return DataHolder.staticSections()
+    }
+
 }
