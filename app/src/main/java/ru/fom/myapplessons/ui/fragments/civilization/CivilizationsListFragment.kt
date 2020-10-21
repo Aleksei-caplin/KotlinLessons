@@ -55,7 +55,7 @@ class CivilizationsListFragment : Fragment() {
 
     private fun initViews() {
         civilizationAdapter = CivilizationAdapter {
-            Toast.makeText(activity, "Текст", Toast.LENGTH_LONG).show()
+            Toast.makeText(activity, it.name, Toast.LENGTH_LONG).show()
         }
 
         val divider = DividerItemDecoration(activity, DividerItemDecoration.VERTICAL)
@@ -69,7 +69,6 @@ class CivilizationsListFragment : Fragment() {
 
     private fun initViewModel() {
         civilizationsList.observe(APP_ACTIVITY, Observer {
-            Log.d("M_inObserv", it.toString())
             civilizationAdapter.updateList(it)
         })
     }

@@ -16,6 +16,8 @@ class StructureAdapter(val listener: (Structure) -> Unit): RecyclerView.Adapter<
         fun bind(structureHolder: Structure, listener: (Structure) -> Unit) = with(itemView) {
 
             tv_structure_name.text = structureHolder.name
+            tv_structure_description.text = structureHolder.description
+            tv_structure_expansion.text = structureHolder.expansion
 
             itemView.setOnClickListener {
                 listener.invoke(structureHolder)
@@ -33,4 +35,9 @@ class StructureAdapter(val listener: (Structure) -> Unit): RecyclerView.Adapter<
     }
 
     override fun getItemCount(): Int = structureLIst.size
+
+    fun updateList(data: List<Structure>) {
+        structureLIst = data
+        notifyDataSetChanged()
+    }
 }

@@ -23,16 +23,18 @@
             tools:text="Aztec" />
 
         <TextView
+            android:id="@+id/tv_structure_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            tools:text="obout Aztec"/>
+
+        <TextView
             android:id="@+id/tv_structure_expansion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"/>
-
-        <TextView
-            android:id="@+id/tv_structure_army_type"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"/>
+            android:layout_marginBottom="10dp"
+            tools:text="expansion"/>
 
     </LinearLayout>
 
