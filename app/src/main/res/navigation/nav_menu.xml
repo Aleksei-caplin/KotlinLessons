@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_menu"
+    app:startDestination="@id/civilizationsListFragment2">
+    <fragment
+        android:id="@+id/civilizationsListFragment2"
+        android:name="ru.fom.myapplessons.ui.fragments.civilization.CivilizationsListFragment"
+        android:label="fragment_civilizations_list"
+        tools:layout="@layout/fragment_civilizations_list" >
+        <action
+            android:id="@+id/action_civilizationsListFragment2_to_civilizationSingleFragment22"
+            app:destination="@id/civilizationSingleFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/civilizationSingleFragment2"
+        android:name="ru.fom.myapplessons.ui.fragments.civilization.CivilizationSingleFragment"
+        android:label="fragment_civilazation_single"
+        tools:layout="@layout/fragment_civilazation_single" />
+    <fragment
+        android:id="@+id/structureListFragment4"
+        android:name="ru.fom.myapplessons.ui.fragments.structures.StructureListFragment"
+        android:label="StructureListFragment" />
+    <fragment
+        android:id="@+id/armyFragment"
+        android:name="ru.fom.myapplessons.ui.fragments.army.ArmyFragment"
+        android:label="fragment_army"
+        tools:layout="@layout/fragment_army" />
+    <fragment
+        android:id="@+id/tehnologyFragment"
+        android:name="ru.fom.myapplessons.ui.fragments.tehnology.TehnologyFragment"
+        android:label="fragment_tehnology"
+        tools:layout="@layout/fragment_tehnology" />
+</navigation>

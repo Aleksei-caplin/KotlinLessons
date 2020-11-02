@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_structure_list.*
 import ru.fom.myapplessons.R
-import ru.fom.myapplessons.buildingList
+//import ru.fom.myapplessons.buildingList
 import ru.fom.myapplessons.fragmentState
 import ru.fom.myapplessons.ui.adapter.StructureAdapter
 import ru.fom.myapplessons.utils.APP_ACTIVITY
@@ -36,8 +36,8 @@ class StructureListFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        initViews()
-        initViewModel()
+        //initViews()
+        //initViewModel()
     }
 
     private fun initViews() {
@@ -54,11 +54,11 @@ class StructureListFragment : Fragment() {
         }
     }
 
-    private fun initViewModel() {
+    /*private fun initViewModel() {
         buildingList.observe(APP_ACTIVITY, Observer {
             structureAdapter.updateList(it)
         })
-    }
+    }*/
 
 
 

@@ -49,8 +49,8 @@ class CivilizationsListFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        initViews()
-        initViewModel()
+        //initViews()
+        //initViewModel()
     }
 
     private fun initViews() {
@@ -60,16 +60,16 @@ class CivilizationsListFragment : Fragment() {
 
         val divider = DividerItemDecoration(activity, DividerItemDecoration.VERTICAL)
 
-        with(civilization_rw_list) {
+        /*with(civilization_rw_list) {
             adapter = civilizationAdapter
             layoutManager = LinearLayoutManager(activity)
             addItemDecoration(divider)
-        }
+        }*/
     }
 
-    private fun initViewModel() {
+    /*private fun initViewModel() {
         civilizationsList.observe(APP_ACTIVITY, Observer {
             civilizationAdapter.updateList(it)
         })
-    }
+    }*/
 }
