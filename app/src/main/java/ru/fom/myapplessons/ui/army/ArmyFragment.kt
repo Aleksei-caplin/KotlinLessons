@@ -1,4 +1,4 @@
-package ru.fom.myapplessons.ui.fragments.army
+package ru.fom.myapplessons.ui.army
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

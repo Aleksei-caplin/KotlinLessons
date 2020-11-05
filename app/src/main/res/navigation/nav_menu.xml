@@ -6,7 +6,7 @@
     app:startDestination="@id/civilizationsListFragment2">
     <fragment
         android:id="@+id/civilizationsListFragment2"
-        android:name="ru.fom.myapplessons.ui.fragments.civilization.CivilizationsListFragment"
+        android:name="ru.fom.myapplessons.ui.civilization.CivilizationsListFragment"
         android:label="fragment_civilizations_list"
         tools:layout="@layout/fragment_civilizations_list" >
         <action
@@ -15,21 +15,21 @@
     </fragment>
     <fragment
         android:id="@+id/civilizationSingleFragment2"
-        android:name="ru.fom.myapplessons.ui.fragments.civilization.CivilizationSingleFragment"
+        android:name="ru.fom.myapplessons.ui.civilization.CivilizationSingleFragment"
         android:label="fragment_civilazation_single"
         tools:layout="@layout/fragment_civilazation_single" />
     <fragment
         android:id="@+id/structureListFragment4"
-        android:name="ru.fom.myapplessons.ui.fragments.structures.StructureListFragment"
+        android:name="ru.fom.myapplessons.ui.structures.StructureListFragment"
         android:label="StructureListFragment" />
     <fragment
         android:id="@+id/armyFragment"
-        android:name="ru.fom.myapplessons.ui.fragments.army.ArmyFragment"
+        android:name="ru.fom.myapplessons.ui.army.ArmyFragment"
         android:label="fragment_army"
         tools:layout="@layout/fragment_army" />
     <fragment
         android:id="@+id/tehnologyFragment"
-        android:name="ru.fom.myapplessons.ui.fragments.tehnology.TehnologyFragment"
+        android:name="ru.fom.myapplessons.ui.tehnology.TehnologyFragment"
         android:label="fragment_tehnology"
         tools:layout="@layout/fragment_tehnology" />
 </navigation>

@@ -1,4 +1,4 @@
-package ru.fom.myapplessons.ui.fragments.civilization
+package ru.fom.myapplessons.ui.civilization
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

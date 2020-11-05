@@ -3,12 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.fragments.army.ArmyFragment">
+    tools:context=".ui.army.ArmyFragment">
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Фрагмент про войска и юнитов" />
+        android:gravity="center"
+        android:text="Список Войск и юнитов" />
 
 </FrameLayout>

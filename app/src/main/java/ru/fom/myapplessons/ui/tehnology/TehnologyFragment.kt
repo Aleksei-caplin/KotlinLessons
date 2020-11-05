@@ -1,4 +1,4 @@
-package ru.fom.myapplessons.ui.fragments.tehnology
+package ru.fom.myapplessons.ui.tehnology
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

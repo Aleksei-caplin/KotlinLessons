@@ -1,9 +1,6 @@
 package ru.fom.myapplessons
 
 import android.os.Bundle
-import android.util.Log
-import android.view.View
-import android.widget.Toast
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -11,33 +8,18 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.mikepenz.materialdrawer.AccountHeader
-import com.mikepenz.materialdrawer.AccountHeaderBuilder
-import com.mikepenz.materialdrawer.Drawer
-import com.mikepenz.materialdrawer.DrawerBuilder
-import com.mikepenz.materialdrawer.model.PrimaryDrawerItem
-import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
-import kotlinx.android.synthetic.main.activity_main.*
 import ru.fom.myapplessons.data.Civilization
-import ru.fom.myapplessons.data.Sections
-import ru.fom.myapplessons.data.Structure
-import ru.fom.myapplessons.data.Technology
-import ru.fom.myapplessons.data.Unit
 import ru.fom.myapplessons.databinding.ActivityMainBinding
-import ru.fom.myapplessons.ui.adapter.SectionsAdapter
-import ru.fom.myapplessons.ui.fragments.civilization.CivilizationsListFragment
-import ru.fom.myapplessons.ui.fragments.structures.StructureListFragment
 import ru.fom.myapplessons.ui.objects.AppDrawer
 import ru.fom.myapplessons.utils.APP_ACTIVITY
-import ru.fom.myapplessons.utils.replaceFragment
 import ru.fom.myapplessons.viewmodel.EmpireViewModel
 
-    /*lateinit var sectionList: List<Sections>
-    lateinit var civilizationsList: LiveData<List<Civilization>>
-    lateinit var buildingList: LiveData<List<Structure>>
-    lateinit var technologyList: LiveData<List<Technology>>
-    lateinit var unitList: LiveData<List<Unit>>*/
+lateinit var civilizationsList: LiveData<List<Civilization>>
+
+    //lateinit var sectionList: List<Sections>
+    //lateinit var buildingList: LiveData<List<Structure>>
+    //lateinit var technologyList: LiveData<List<Technology>>
+    //lateinit var unitList: LiveData<List<Unit>>*/
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var toolbar: Toolbar
@@ -46,9 +28,9 @@ import ru.fom.myapplessons.viewmodel.EmpireViewModel
 
     var fragmentState = ""
 
-    /*val viewModel: EmpireViewModel by lazy {
+    val viewModel: EmpireViewModel by lazy {
         ViewModelProvider(APP_ACTIVITY).get(EmpireViewModel::class.java)
-    }*/
+    }
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -59,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         APP_ACTIVITY = this
 
         //sectionList = viewModel.getSections()
-        //civilizationsList = viewModel.getCivilizationData()
+        civilizationsList = viewModel.getCivilizationData()
         //buildingList = viewModel.getStructureData()
 
         //showSectionList() // отрисовываем список разделов

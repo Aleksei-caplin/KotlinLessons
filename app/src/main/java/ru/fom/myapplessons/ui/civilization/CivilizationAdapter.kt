@@ -1,4 +1,4 @@
-package ru.fom.myapplessons.ui.adapter
+package ru.fom.myapplessons.ui.civilization
 
 import android.view.LayoutInflater
 import android.view.View
