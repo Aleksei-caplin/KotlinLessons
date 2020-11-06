@@ -1,20 +1,28 @@
 package ru.fom.myapplessons.ui.civilization
 
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
+import kotlinx.android.synthetic.main.fragment_civilazation_single.*
 import ru.fom.myapplessons.R
+import ru.fom.myapplessons.ui.base.BaseFragment
+import ru.fom.myapplessons.viewmodel.base.ViewModelFactory
+import ru.fom.myapplessons.viewmodel.civilization.CivilizationViewModel
+import ru.fom.myapplessons.viewmodel.civilization.CivilizationsViewModel
 
-class CivilizationSingleFragment : Fragment() {
+class CivilizationSingleFragment: BaseFragment<CivilizationViewModel>() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_civilazation_single, container, false)
+    private val args: CivilizationSingleFragmentArgs by navArgs()
+
+    override val layout: Int = R.layout.fragment_civilazation_single
+    override val viewModel: CivilizationViewModel by viewModels{
+        ViewModelFactory (
+            owner = this,
+            params = 4
+        )
+    }
+
+    override fun setupViews() {
+        tv_civilization_name.text = args.name
     }
 
 }

@@ -12,12 +12,22 @@
         <action
             android:id="@+id/action_civilizationsListFragment2_to_civilizationSingleFragment22"
             app:destination="@id/civilizationSingleFragment2" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/civilizationSingleFragment2"
         android:name="ru.fom.myapplessons.ui.civilization.CivilizationSingleFragment"
         android:label="fragment_civilazation_single"
-        tools:layout="@layout/fragment_civilazation_single" />
+        tools:layout="@layout/fragment_civilazation_single" >
+        <argument
+            android:name="name"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/structureListFragment4"
         android:name="ru.fom.myapplessons.ui.structures.StructureListFragment"

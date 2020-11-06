@@ -14,7 +14,7 @@ import ru.fom.myapplessons.ui.objects.AppDrawer
 import ru.fom.myapplessons.utils.APP_ACTIVITY
 import ru.fom.myapplessons.viewmodel.EmpireViewModel
 
-lateinit var civilizationsList: LiveData<List<Civilization>>
+    lateinit var civilizationsList: LiveData<List<Civilization>>
 
     //lateinit var sectionList: List<Sections>
     //lateinit var buildingList: LiveData<List<Structure>>
@@ -23,7 +23,7 @@ lateinit var civilizationsList: LiveData<List<Civilization>>
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var toolbar: Toolbar
-    private lateinit var navController: NavController
+    lateinit var navController: NavController
     private lateinit var appDrawer: AppDrawer
 
     var fragmentState = ""
