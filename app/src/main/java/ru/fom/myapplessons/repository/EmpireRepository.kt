@@ -51,8 +51,6 @@ class EmpireRepository(private val retrofitService: EmpireInterface) {
             }
 
         })
-
         return data
     }
-
 }

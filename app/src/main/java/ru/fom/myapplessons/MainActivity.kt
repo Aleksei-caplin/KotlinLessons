@@ -26,11 +26,9 @@ import ru.fom.myapplessons.viewmodel.EmpireViewModel
     lateinit var navController: NavController
     private lateinit var appDrawer: AppDrawer
 
-    var fragmentState = ""
-
-    val viewModel: EmpireViewModel by lazy {
+   /* val viewModel: EmpireViewModel by lazy {
         ViewModelProvider(APP_ACTIVITY).get(EmpireViewModel::class.java)
-    }
+    }*/
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         APP_ACTIVITY = this
 
         //sectionList = viewModel.getSections()
-        civilizationsList = viewModel.getCivilizationData()
+        //civilizationsList = viewModel.getCivilizationData()
         //buildingList = viewModel.getStructureData()
 
         //showSectionList() // отрисовываем список разделов

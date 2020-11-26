@@ -8,9 +8,9 @@ import kotlinx.android.synthetic.main.structure_item.view.*
 import ru.fom.myapplessons.R
 import ru.fom.myapplessons.data.Structure
 
-class StructureAdapter(val listener: (Structure) -> Unit): RecyclerView.Adapter<StructureAdapter.StructureHolder>() {
+class StructureAdapter(private val listener: (Structure) -> Unit): RecyclerView.Adapter<StructureAdapter.StructureHolder>() {
 
-    var structureLIst: List<Structure> = listOf()
+    private var structureLIst: List<Structure> = listOf()
 
     inner class StructureHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         fun bind(structureHolder: Structure, listener: (Structure) -> Unit) = with(itemView) {

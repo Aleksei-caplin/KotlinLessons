@@ -13,11 +13,9 @@
             android:id="@+id/action_civilizationsListFragment2_to_civilizationSingleFragment22"
             app:destination="@id/civilizationSingleFragment2" />
         <argument
-            android:name="name"
-            app:argType="string" />
-        <argument
-            android:name="id"
-            app:argType="integer" />
+            android:name="filter"
+            app:argType="string"
+            android:defaultValue="A" />
     </fragment>
     <fragment
         android:id="@+id/civilizationSingleFragment2"
@@ -27,11 +25,15 @@
         <argument
             android:name="name"
             app:argType="string" />
+        <argument
+            android:name="id"
+            app:argType="integer"
+            android:defaultValue="0" />
+        <argument
+            android:name="filter"
+            app:argType="string"
+            android:defaultValue="No filter" />
     </fragment>
-    <fragment
-        android:id="@+id/structureListFragment4"
-        android:name="ru.fom.myapplessons.ui.structures.StructureListFragment"
-        android:label="StructureListFragment" />
     <fragment
         android:id="@+id/armyFragment"
         android:name="ru.fom.myapplessons.ui.army.ArmyFragment"
@@ -42,4 +44,31 @@
         android:name="ru.fom.myapplessons.ui.tehnology.TehnologyFragment"
         android:label="fragment_tehnology"
         tools:layout="@layout/fragment_tehnology" />
+    <fragment
+        android:id="@+id/structureSingleFragment"
+        android:name="ru.fom.myapplessons.ui.structures.StructureSingleFragment"
+        android:label="fragment_structure_single"
+        tools:layout="@layout/fragment_structure_single" >
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/structureListFragment"
+        android:name="ru.fom.myapplessons.ui.structures.StructureListFragment"
+        android:label="fragment_structure_list"
+        tools:layout="@layout/fragment_structure_list" >
+        <action
+            android:id="@+id/action_structureListFragment3_to_structureSingleFragment"
+            app:destination="@id/structureSingleFragment" />
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
 </navigation>
