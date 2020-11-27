@@ -6,7 +6,7 @@
     android:id="@+id/coordinator_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appbar"
@@ -24,5 +24,10 @@
             android:elevation="4dp"/>
 
     </com.google.android.material.appbar.AppBarLayout>
+
+    <ru.fom.myapplessons.ui.custom.DetailSubmenu
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:layout_gravity="bottom|right"/>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
