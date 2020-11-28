@@ -12,6 +12,7 @@ import com.mikepenz.materialdrawer.model.PrimaryDrawerItem
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
 import ru.fom.myapplessons.R
 import ru.fom.myapplessons.utils.APP_ACTIVITY
+import ru.fom.myapplessons.utils.FILTER_NAME_MENU
 
 
 class AppDrawer(
@@ -44,7 +45,12 @@ class AppDrawer(
 
                     PrimaryDrawerItem().withIdentifier(105)
                             .withIconTintingEnabled(true)
-                            .withName(" - Фильтр по названию")
+                            .withName(" - Фильтр по названию 1")
+                            .withSelectable(false)
+                            .withLevel(5),
+                    PrimaryDrawerItem().withIdentifier(105)
+                            .withIconTintingEnabled(true)
+                            .withName(" - Фильтр по названию 2")
                             .withSelectable(false)
                             .withLevel(5),
                     PrimaryDrawerItem().withIdentifier(101)
@@ -81,12 +87,17 @@ class AppDrawer(
             0 -> navController.navigate(R.id.civilizationsListFragment2)
             1 -> {
                 val bundle = Bundle()
-                bundle.putString("filter", "Age of Kings")
+                bundle.putString(FILTER_NAME_MENU, "Age of Kings")
                 navController.navigate(R.id.civilizationsListFragment2, bundle)
             }
-            2 -> navController.navigate(R.id.structureListFragment)
-            3 -> navController.navigate(R.id.tehnologyFragment)
-            4 -> navController.navigate(R.id.armyFragment)
+            2 -> {
+                val bundle = Bundle()
+                bundle.putString(FILTER_NAME_MENU, "The Conquerors")
+                navController.navigate(R.id.civilizationsListFragment2, bundle)
+            }
+            3 -> navController.navigate(R.id.structureListFragment)
+            4 -> navController.navigate(R.id.tehnologyFragment)
+            5 -> navController.navigate(R.id.armyFragment)
         }
     }
 

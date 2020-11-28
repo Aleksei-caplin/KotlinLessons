@@ -40,6 +40,8 @@ class CivilizationsListFragment : BaseFragment<EmpireViewModel>() {
 
     override fun setupViews() {
         initViewModel()
+        Log.d("M_fffff", filterName.toString())
+        viewModel.getCivilizationData(filterName.orEmpty())
         val divider = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
         
         with(civilization_rw_list) {
@@ -47,12 +49,12 @@ class CivilizationsListFragment : BaseFragment<EmpireViewModel>() {
             layoutManager = LinearLayoutManager(context)
             addItemDecoration(divider)
         }
+
     }
 
     private fun initViewModel() {
-
-        civilizationsList = viewModel.getCivilizationData()
-        Log.d("M_filter", civilizationsList.toString())
+        civilizationsList = viewModel.civilizationItems
+        Log.d("M_get", civilizationsList.value.toString())
         civilizationsList.observe(APP_ACTIVITY, Observer {
             civilizationAdapter.updateList(it)
         })

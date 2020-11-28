@@ -14,8 +14,7 @@
             app:destination="@id/civilizationSingleFragment2" />
         <argument
             android:name="filter"
-            app:argType="string"
-            android:defaultValue="A" />
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/civilizationSingleFragment2"

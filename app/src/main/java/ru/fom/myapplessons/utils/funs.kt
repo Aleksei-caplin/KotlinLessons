@@ -6,6 +6,7 @@ import ru.fom.myapplessons.MainActivity
 // constants
 lateinit var APP_ACTIVITY: MainActivity
 
+const val FILTER_NAME_MENU = "filter"
 
 // functions
 fun replaceFragment(container: Int, fragment: Fragment) {
