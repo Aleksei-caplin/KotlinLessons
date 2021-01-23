@@ -11,7 +11,11 @@
         tools:layout="@layout/fragment_civilizations_list" >
         <action
             android:id="@+id/action_civilizationsListFragment2_to_civilizationSingleFragment22"
-            app:destination="@id/civilizationSingleFragment2" />
+            app:destination="@id/civilizationSingleFragment2"
+            app:enterAnim="@anim/fragment_fade_enter"
+            app:exitAnim="@anim/fragment_fade_exit"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out" />
         <argument
             android:name="filter"
             app:argType="string" />

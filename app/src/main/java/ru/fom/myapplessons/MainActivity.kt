@@ -1,13 +1,22 @@
 package ru.fom.myapplessons
 
 import android.os.Bundle
+import android.view.Menu
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
+import androidx.drawerlayout.widget.DrawerLayout
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.ui.AppBarConfiguration
+import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
+import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.navigation.NavigationView
+import kotlinx.android.synthetic.main.activity_main.*
 import ru.fom.myapplessons.data.Civilization
 import ru.fom.myapplessons.databinding.ActivityMainBinding
 import ru.fom.myapplessons.ui.objects.AppDrawer
@@ -25,6 +34,9 @@ import ru.fom.myapplessons.viewmodel.EmpireViewModel
     private lateinit var toolbar: Toolbar
     lateinit var navController: NavController
     private lateinit var appDrawer: AppDrawer
+    private lateinit var appBarConfiguration: AppBarConfiguration
+    private lateinit var layoutDraver: DrawerLayout
+    private lateinit var navView: NavigationView
 
    /* val viewModel: EmpireViewModel by lazy {
         ViewModelProvider(APP_ACTIVITY).get(EmpireViewModel::class.java)
@@ -53,17 +65,32 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initFields() {
-        toolbar = binding.mainToolbar
-        navController = Navigation.findNavController(APP_ACTIVITY, R.id.nav_host)
-        appDrawer = AppDrawer(navController, toolbar)
-
-
-
+        //toolbar = binding.mainToolbar
+        toolbar = findViewById(R.id.main_toolbar)
+        //navController = Navigation.findNavController(APP_ACTIVITY, R.id.nav_host)
+        //appDrawer = AppDrawer(navController, toolbar)
+        layoutDraver = findViewById(R.id.draver_layout)
+        navView = findViewById(R.id.nav_view)
+        navController = findNavController(R.id.nav_host)
     }
 
     private fun initFuns() {
         setSupportActionBar(toolbar)
-        appDrawer.createSideMenu()
+        //appDrawer.createSideMenu()
+        appBarConfiguration = AppBarConfiguration(setOf(
+            R.id.structureListFragment,
+            R.id.civilizationsListFragment2,
+            R.id.tehnologyFragment,
+            R.id.armyFragment
+        ), layoutDraver)
+
+        setupActionBarWithNavController(navController, appBarConfiguration)
+        navView.setupWithNavController(navController)
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        navController = findNavController(R.id.nav_host)
+        return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
 

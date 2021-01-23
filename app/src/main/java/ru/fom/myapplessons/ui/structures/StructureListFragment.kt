@@ -10,6 +10,8 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
+import androidx.navigation.NavOptions
+import androidx.navigation.NavOptionsBuilder
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_structure_list.*
@@ -29,13 +31,15 @@ class StructureListFragment : BaseFragment<EmpireViewModel>() {
     override val layout = R.layout.fragment_structure_list
 
     lateinit var structureList: LiveData<List<Structure>>
+    private var navBuilder = NavOptions.Builder()
 
     private val structureAdapter = StructureAdapter { item ->
         val action = StructureListFragmentDirections.actionStructureListFragment3ToStructureSingleFragment(
             item.name,
             item.id
         )
-        navController.navigate(action.actionId, action.arguments)
+        navBuilder.setEnterAnim(R.anim.slide_left).setExitAnim(R.anim.slide_right).setPopEnterAnim(R.anim.slide_left).setPopExitAnim(R.anim.slide_right)
+        navController.navigate(action.actionId, action.arguments, navBuilder.build())
         Toast.makeText(activity, item.name, Toast.LENGTH_LONG).show()
     }
 
