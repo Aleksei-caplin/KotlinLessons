@@ -16,6 +16,7 @@ import ru.fom.myapplessons.data.Civilization
 import ru.fom.myapplessons.navController
 
 import ru.fom.myapplessons.ui.base.BaseFragment
+import ru.fom.myapplessons.ui.objects.ProgressTask
 import ru.fom.myapplessons.utils.APP_ACTIVITY
 import ru.fom.myapplessons.viewmodel.EmpireViewModel
 import ru.fom.myapplessons.viewmodel.civilization.CivilizationsViewModel
@@ -40,6 +41,7 @@ class CivilizationsListFragment : BaseFragment<EmpireViewModel>() {
 
     override fun setupViews() {
         initViewModel()
+        ProgressTask(main).execute()
         Log.d("M_fffff", filterName.toString())
         viewModel.getCivilizationData(filterName.orEmpty())
         val divider = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)

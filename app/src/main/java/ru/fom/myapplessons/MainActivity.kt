@@ -20,6 +20,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 import ru.fom.myapplessons.data.Civilization
 import ru.fom.myapplessons.databinding.ActivityMainBinding
 import ru.fom.myapplessons.ui.objects.AppDrawer
+import ru.fom.myapplessons.ui.objects.ProgressTask
 import ru.fom.myapplessons.utils.APP_ACTIVITY
 import ru.fom.myapplessons.viewmodel.EmpireViewModel
 
@@ -86,10 +87,10 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
     }
 
     override fun onSupportNavigateUp(): Boolean {
-        navController = findNavController(R.id.nav_host)
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 
