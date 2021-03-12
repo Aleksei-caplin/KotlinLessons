@@ -1,5 +1,6 @@
 package ru.fom.myapplessons
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.Menu
 
@@ -21,7 +22,7 @@ import ru.fom.myapplessons.data.Civilization
 import ru.fom.myapplessons.databinding.ActivityMainBinding
 import ru.fom.myapplessons.ui.objects.AppDrawer
 import ru.fom.myapplessons.ui.objects.ProgressTask
-import ru.fom.myapplessons.utils.APP_ACTIVITY
+
 import ru.fom.myapplessons.viewmodel.EmpireViewModel
 
     lateinit var civilizationsList: LiveData<List<Civilization>>
@@ -32,7 +33,9 @@ import ru.fom.myapplessons.viewmodel.EmpireViewModel
     //lateinit var unitList: LiveData<List<Unit>>*/
 
     private lateinit var binding: ActivityMainBinding
+    @SuppressLint("StaticFieldLeak")
     private lateinit var toolbar: Toolbar
+    @SuppressLint("StaticFieldLeak")
     lateinit var navController: NavController
     private lateinit var appDrawer: AppDrawer
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -49,7 +52,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        APP_ACTIVITY = this
+        //APP_ACTIVITY = this
 
         //sectionList = viewModel.getSections()
         //civilizationsList = viewModel.getCivilizationData()

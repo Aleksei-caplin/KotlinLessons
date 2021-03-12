@@ -10,8 +10,9 @@ import com.mikepenz.materialdrawer.Drawer
 import com.mikepenz.materialdrawer.DrawerBuilder
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem
+import ru.fom.myapplessons.MainActivity
 import ru.fom.myapplessons.R
-import ru.fom.myapplessons.utils.APP_ACTIVITY
+
 import ru.fom.myapplessons.utils.FILTER_NAME_MENU
 
 
@@ -31,7 +32,7 @@ class AppDrawer(
 
     private fun createDrawer() {
         drawer = DrawerBuilder()
-            .withActivity(APP_ACTIVITY)
+            .withActivity(MainActivity())
             .withToolbar(toolbar)
             .withActionBarDrawerToggle(true)
             .withSelectedItem(-1)
@@ -103,7 +104,7 @@ class AppDrawer(
 
     private fun createHeader() {
         header = AccountHeaderBuilder()
-            .withActivity(APP_ACTIVITY)
+            .withActivity(MainActivity())
             .withHeaderBackground(R.color.md_dark_background)
             //.withAccountHeader(R.layout.drawer_header)
             .build()

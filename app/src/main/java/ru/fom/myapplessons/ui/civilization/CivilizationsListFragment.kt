@@ -4,22 +4,16 @@ import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
-import androidx.lifecycle.Transformations
-import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_civilizations_list.*
 import ru.fom.myapplessons.R
 import ru.fom.myapplessons.data.Civilization
 import ru.fom.myapplessons.navController
-
 import ru.fom.myapplessons.ui.base.BaseFragment
 import ru.fom.myapplessons.ui.objects.ProgressTask
-import ru.fom.myapplessons.utils.APP_ACTIVITY
 import ru.fom.myapplessons.viewmodel.EmpireViewModel
-import ru.fom.myapplessons.viewmodel.civilization.CivilizationsViewModel
 
 class CivilizationsListFragment : BaseFragment<EmpireViewModel>() {
 
@@ -41,7 +35,7 @@ class CivilizationsListFragment : BaseFragment<EmpireViewModel>() {
 
     override fun setupViews() {
         initViewModel()
-        ProgressTask(main).execute()
+        //ProgressTask(main).execute()
         Log.d("M_fffff", filterName.toString())
         viewModel.getCivilizationData(filterName.orEmpty())
         val divider = DividerItemDecoration(context, DividerItemDecoration.VERTICAL)
@@ -57,7 +51,7 @@ class CivilizationsListFragment : BaseFragment<EmpireViewModel>() {
     private fun initViewModel() {
         civilizationsList = viewModel.civilizationItems
         Log.d("M_get", civilizationsList.value.toString())
-        civilizationsList.observe(APP_ACTIVITY, Observer {
+        civilizationsList.observe(main, Observer {
             civilizationAdapter.updateList(it)
         })
     }

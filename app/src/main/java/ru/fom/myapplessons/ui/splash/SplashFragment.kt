@@ -14,9 +14,10 @@ import android.widget.ImageView
 import androidx.navigation.fragment.findNavController
 import kotlinx.android.synthetic.*
 import kotlinx.android.synthetic.main.fragment_splash.*
+import ru.fom.myapplessons.MainActivity
 import ru.fom.myapplessons.R
 import ru.fom.myapplessons.ui.base.BaseFragment
-import ru.fom.myapplessons.utils.APP_ACTIVITY
+
 import ru.fom.myapplessons.viewmodel.EmpireViewModel
 
 class SplashFragment : Fragment() {
@@ -46,8 +47,8 @@ class SplashFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        topAnimation = AnimationUtils.loadAnimation(APP_ACTIVITY, R.anim.splash_top_animation)
-        bottomAnimation = AnimationUtils.loadAnimation(APP_ACTIVITY, R.anim.splash_bottom_animation)
+        topAnimation = AnimationUtils.loadAnimation(activity, R.anim.splash_top_animation)
+        bottomAnimation = AnimationUtils.loadAnimation(activity, R.anim.splash_bottom_animation)
 
         iv_spalsh_pic.startAnimation(topAnimation)
         tv_splash_text.startAnimation(bottomAnimation)

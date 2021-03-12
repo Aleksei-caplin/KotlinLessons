@@ -20,7 +20,7 @@ import ru.fom.myapplessons.data.Structure
 import ru.fom.myapplessons.navController
 import ru.fom.myapplessons.ui.base.BaseFragment
 //import ru.fom.myapplessons.buildingList
-import ru.fom.myapplessons.utils.APP_ACTIVITY
+
 import ru.fom.myapplessons.viewmodel.EmpireViewModel
 import ru.fom.myapplessons.viewmodel.civilization.CivilizationsViewModel
 
@@ -50,7 +50,7 @@ class StructureListFragment : BaseFragment<EmpireViewModel>() {
 
         with(structure_rw_list) {
             adapter = structureAdapter
-            layoutManager = LinearLayoutManager(APP_ACTIVITY)
+            layoutManager = LinearLayoutManager(main)
             addItemDecoration(divider)
         }
     }
@@ -59,7 +59,7 @@ class StructureListFragment : BaseFragment<EmpireViewModel>() {
 
 
         structureList = viewModel.getStructureData()
-        structureList.observe(APP_ACTIVITY, Observer {
+        structureList.observe(main, Observer {
             structureAdapter.updateList(it)
         })
     }
