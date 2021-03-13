@@ -2,7 +2,9 @@ package ru.fom.myapplessons
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
+import androidx.activity.viewModels
 
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
@@ -20,12 +22,14 @@ import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.fom.myapplessons.data.Civilization
 import ru.fom.myapplessons.databinding.ActivityMainBinding
+import ru.fom.myapplessons.ui.base.BaseActivity
 import ru.fom.myapplessons.ui.objects.AppDrawer
 import ru.fom.myapplessons.ui.objects.ProgressTask
 
 import ru.fom.myapplessons.viewmodel.EmpireViewModel
+import ru.fom.myapplessons.viewmodel.MainViewModel
 
-    lateinit var civilizationsList: LiveData<List<Civilization>>
+lateinit var civilizationsList: LiveData<List<Civilization>>
 
     //lateinit var sectionList: List<Sections>
     //lateinit var buildingList: LiveData<List<Structure>>
@@ -36,7 +40,7 @@ import ru.fom.myapplessons.viewmodel.EmpireViewModel
     @SuppressLint("StaticFieldLeak")
     private lateinit var toolbar: Toolbar
     @SuppressLint("StaticFieldLeak")
-    lateinit var navController: NavController
+    //lateinit var navController: NavController
     private lateinit var appDrawer: AppDrawer
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var layoutDraver: DrawerLayout
@@ -46,11 +50,15 @@ import ru.fom.myapplessons.viewmodel.EmpireViewModel
         ViewModelProvider(APP_ACTIVITY).get(EmpireViewModel::class.java)
     }*/
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity<MainViewModel>() {
+
+    override val viewModel: MainViewModel by viewModels()
+    override val layout: Int = R.layout.activity_main
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityMainBinding.inflate(layoutInflater)
-        setContentView(binding.root)
+        //binding = ActivityMainBinding.inflate(layoutInflater)
+        //setContentView(binding.root)
 
         //APP_ACTIVITY = this
 
@@ -79,7 +87,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initFuns() {
-        setSupportActionBar(toolbar)
+        //setSupportActionBar(toolbar)
         //appDrawer.createSideMenu()
         appBarConfiguration = AppBarConfiguration(setOf(
             R.id.structureListFragment,
@@ -90,7 +98,6 @@ class MainActivity : AppCompatActivity() {
 
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
-
     }
 
     override fun onSupportNavigateUp(): Boolean {

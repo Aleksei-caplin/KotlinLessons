@@ -7,15 +7,11 @@
     <fragment
         android:id="@+id/civilizationsListFragment2"
         android:name="ru.fom.myapplessons.ui.civilization.CivilizationsListFragment"
-        android:label="fragment_civilizations_list"
-        tools:layout="@layout/fragment_civilizations_list" >
+        android:label="@string/civilization_fr_title"
+        tools:layout="@layout/fragment_civilizations_list">
         <action
             android:id="@+id/action_civilizationsListFragment2_to_civilizationSingleFragment22"
-            app:destination="@id/civilizationSingleFragment2"
-            app:enterAnim="@anim/fragment_fade_enter"
-            app:exitAnim="@anim/fragment_fade_exit"
-            app:popEnterAnim="@android:anim/fade_in"
-            app:popExitAnim="@android:anim/fade_out" />
+            app:destination="@id/civilizationSingleFragment2" />
         <argument
             android:name="filter"
             app:argType="string" />
@@ -23,35 +19,35 @@
     <fragment
         android:id="@+id/civilizationSingleFragment2"
         android:name="ru.fom.myapplessons.ui.civilization.CivilizationSingleFragment"
-        android:label="fragment_civilazation_single"
-        tools:layout="@layout/fragment_civilazation_single" >
+        android:label="Цивилизация: {name}"
+        tools:layout="@layout/fragment_civilazation_single">
         <argument
             android:name="name"
             app:argType="string" />
         <argument
             android:name="id"
-            app:argType="integer"
-            android:defaultValue="0" />
+            android:defaultValue="0"
+            app:argType="integer" />
         <argument
             android:name="filter"
-            app:argType="string"
-            android:defaultValue="No filter" />
+            android:defaultValue="No filter"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/armyFragment"
         android:name="ru.fom.myapplessons.ui.army.ArmyFragment"
-        android:label="fragment_army"
+        android:label="@string/army_fr_title"
         tools:layout="@layout/fragment_army" />
     <fragment
         android:id="@+id/tehnologyFragment"
         android:name="ru.fom.myapplessons.ui.tehnology.TehnologyFragment"
-        android:label="fragment_tehnology"
+        android:label="@string/tehno_fr_title"
         tools:layout="@layout/fragment_tehnology" />
     <fragment
         android:id="@+id/structureSingleFragment"
         android:name="ru.fom.myapplessons.ui.structures.StructureSingleFragment"
-        android:label="fragment_structure_single"
-        tools:layout="@layout/fragment_structure_single" >
+        android:label="{name}"
+        tools:layout="@layout/fragment_structure_single">
         <argument
             android:name="name"
             app:argType="string" />
@@ -62,8 +58,8 @@
     <fragment
         android:id="@+id/structureListFragment"
         android:name="ru.fom.myapplessons.ui.structures.StructureListFragment"
-        android:label="fragment_structure_list"
-        tools:layout="@layout/fragment_structure_list" >
+        android:label="@string/structure_fr_title"
+        tools:layout="@layout/fragment_structure_list">
         <action
             android:id="@+id/action_structureListFragment3_to_structureSingleFragment"
             app:destination="@id/structureSingleFragment" />

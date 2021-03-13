@@ -1,5 +1,6 @@
 package ru.fom.myapplessons.ui.civilization
 
+import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.fragment.app.viewModels
@@ -10,9 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_civilizations_list.*
 import ru.fom.myapplessons.R
 import ru.fom.myapplessons.data.Civilization
-import ru.fom.myapplessons.navController
+import ru.fom.myapplessons.data.MenuItemHolder
 import ru.fom.myapplessons.ui.base.BaseFragment
-import ru.fom.myapplessons.ui.objects.ProgressTask
+import ru.fom.myapplessons.ui.base.ToolbarBuilder
 import ru.fom.myapplessons.viewmodel.EmpireViewModel
 
 class CivilizationsListFragment : BaseFragment<EmpireViewModel>() {
@@ -28,10 +29,25 @@ class CivilizationsListFragment : BaseFragment<EmpireViewModel>() {
         val action = CivilizationsListFragmentDirections.actionCivilizationsListFragment2ToCivilizationSingleFragment22(
             item.name
         )
-        navController.navigate(action.actionId, action.arguments)
+        main.navController.navigate(action.actionId, action.arguments)
         Toast.makeText(activity, item.name, Toast.LENGTH_LONG).show()
     }
 
+    override val prepareToolbar: (ToolbarBuilder.() -> Unit) = {
+        addMenuItem(
+            MenuItemHolder(
+                "Search",
+                R.id.action_search,
+                R.drawable.ic_baseline_search_24,
+                R.layout.search_view_layout
+            )
+        )
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setHasOptionsMenu(true)
+    }
 
     override fun setupViews() {
         initViewModel()
