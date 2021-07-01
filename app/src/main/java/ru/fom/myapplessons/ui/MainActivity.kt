@@ -1,4 +1,4 @@
-package ru.fom.myapplessons
+package ru.fom.myapplessons.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
