@@ -1,12 +1,13 @@
 package ru.fom.myapplessons.data.local
 
-import androidx.room.Database
-import androidx.room.Room
-import androidx.room.RoomDatabase
+import androidx.room.*
 import ru.fom.myapplessons.App
 import ru.fom.myapplessons.BuildConfig
+import ru.fom.myapplessons.data.local.dao.ArticleCountsDao
 import ru.fom.myapplessons.data.local.dao.ArticlesDao
 import ru.fom.myapplessons.data.local.entities.Article
+import ru.fom.myapplessons.data.local.entities.ArticleCounts
+import ru.fom.myapplessons.data.local.entities.ArticleItem
 
 object DbManager {
     val db = Room.databaseBuilder(
@@ -17,17 +18,19 @@ object DbManager {
 }
 
 @Database(
-    entities = [Article::class],
+    entities = [Article::class, ArticleCounts::class],
     version = AppDb.DATABASE_VERSION,
     exportSchema = false,
-    views = []
+    views = [ArticleItem::class]
 )
+
+@TypeConverters(DateConverter::class)
 abstract class AppDb: RoomDatabase() {
     companion object {
-        const val DATABASE_NAME: String = BuildConfig.APPLICATION_ID + ".db"
+        const val DATABASE_NAME: String = "table_4.db"
         const val DATABASE_VERSION = 1
     }
 
     abstract fun articlesDao(): ArticlesDao
-
+    abstract fun articleCountsDao(): ArticleCountsDao
 }
