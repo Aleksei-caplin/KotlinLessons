@@ -1,6 +1,7 @@
 package ru.fom.myapplessons.data.repository
 
 import androidx.lifecycle.LiveData
+import ru.fom.myapplessons.data.local.DbManager.db
 import ru.fom.myapplessons.data.remote.NetworkManager
 import ru.fom.myapplessons.data.remote.res.ArticleRes
 import javax.sql.DataSource
@@ -22,7 +23,7 @@ interface IArticlesRepository {
 object ArticlesRepository : IArticlesRepository {
 
     private val network = NetworkManager.api
-
+    private var articlesDao = db.articlesDao()
 
     override suspend fun loadArticlesFromNetwork(start: String?, size: Int): Int {
         val items = network.articles(start, size)
@@ -31,7 +32,7 @@ object ArticlesRepository : IArticlesRepository {
     }
 
     override suspend fun insertArticlesToDb(articles: List<ArticleRes>) {
-
+        articlesDao.upsert(articles.map { it.data.toA })
     }
 
     override suspend fun toggleBookmark(articleId: String): Boolean {
