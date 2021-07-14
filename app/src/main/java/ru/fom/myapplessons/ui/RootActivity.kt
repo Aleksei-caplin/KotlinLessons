@@ -2,6 +2,7 @@ package ru.fom.myapplessons.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
@@ -12,9 +13,13 @@ import ru.fom.myapplessons.data.local.DbManager.db
 import ru.fom.myapplessons.data.local.entities.Article
 import ru.fom.myapplessons.data.local.entities.ArticleCounts
 import ru.fom.myapplessons.data.local.entities.Author
+import ru.fom.myapplessons.data.repository.ArticlesRepository
 import java.util.*
 
 class RootActivity : AppCompatActivity() {
+
+    private val repository = ArticlesRepository
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -79,7 +84,11 @@ class RootActivity : AppCompatActivity() {
             //db.articleCountsDao().incrementLike("1")
 
             //db.articlesDao().delete(expectedArticle)
-
+            repository.loadArticlesFromNetwork("", 10)
+        }.invokeOnCompletion {
+            Log.d("M_", "complite")
         }
+
+
     }
 }

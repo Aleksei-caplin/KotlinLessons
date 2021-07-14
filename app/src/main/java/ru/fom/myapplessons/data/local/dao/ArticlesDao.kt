@@ -10,7 +10,7 @@ import ru.fom.myapplessons.data.local.entities.ArticleItem
 @Dao
 interface ArticlesDao: BaseDao<Article> {
 
-    fun upsert(list: List<Article>) {
+    suspend fun upsert(list: List<Article>) {
         insert(list)
             .mapIndexed{index, recordResult -> if(recordResult == -1L) list[index] else null }
             .filterNotNull()
@@ -20,7 +20,7 @@ interface ArticlesDao: BaseDao<Article> {
     @Query("""
         SELECT * FROM articles
     """)
-    fun findArticles(): List<Article>
+    suspend fun findArticles(): List<Article>
 
     @Query(
         """
@@ -29,15 +29,15 @@ interface ArticlesDao: BaseDao<Article> {
             LIMIT 1
         """
     )
-    fun findArticleById(id: String): Article
+    suspend fun findArticleById(id: String): Article
 
     @Query("""
         SELECT * FROM ArticleItem
     """)
-    fun findArticlesItems(): List<ArticleItem>
+    suspend fun findArticlesItems(): List<ArticleItem>
 
     @Delete
-    fun delete(article: Article)
+    suspend fun delete(article: Article)
 
 
 }

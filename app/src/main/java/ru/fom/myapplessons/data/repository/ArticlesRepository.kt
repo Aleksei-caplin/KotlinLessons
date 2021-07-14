@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import ru.fom.myapplessons.data.local.DbManager.db
 import ru.fom.myapplessons.data.remote.NetworkManager
 import ru.fom.myapplessons.data.remote.res.ArticleRes
+import ru.fom.myapplessons.extensions.data.toArticle
 import javax.sql.DataSource
 
 
@@ -32,7 +33,7 @@ object ArticlesRepository : IArticlesRepository {
     }
 
     override suspend fun insertArticlesToDb(articles: List<ArticleRes>) {
-        articlesDao.upsert(articles.map { it.data.toA })
+        articlesDao.upsert(articles.map { it.data.toArticle() })
     }
 
     override suspend fun toggleBookmark(articleId: String): Boolean {
