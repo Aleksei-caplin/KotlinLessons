@@ -37,11 +37,11 @@ class RootActivity : AppCompatActivity() {
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
 
-        CoroutineScope(Dispatchers.IO).launch {
+        CoroutineScope(Dispatchers.Unconfined).launch {
             repo.getCivilisations()
         }
 
-        Log.d("M_ff", tt.toString())
+
     }
 
     override fun onStart() {

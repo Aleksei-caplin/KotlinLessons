@@ -3,6 +3,8 @@ package ru.fom.myapplessons.data.repository
 import ru.fom.myapplessons.data.local.DbManager.db
 import ru.fom.myapplessons.data.local.entities.Civilization
 import ru.fom.myapplessons.data.remote.NetworkManager
+import ru.fom.myapplessons.data.remote.res.CivilizationDataRes
+import ru.fom.myapplessons.extensions.data.toCivilization
 
 
 object AppRepository: IAppRepository {
@@ -12,11 +14,11 @@ object AppRepository: IAppRepository {
 
     override suspend fun getCivilisations(): Int {
         val items = network.getCivilizationList()
-        //if( items.isNotEmpty() ) InsertCivilizationsToDb(items)
+        if( items.civilizations.isNotEmpty() ) insertCivilizationsToDb(items.civilizations)
         return items.civilizations.size
     }
 
-    override suspend fun insertCivilizationsToDb(civilizations: List<Civilization>) {
-        //civilizationDao.upsert(civilizations.map {  })
+    override suspend fun insertCivilizationsToDb(civilizations: List<CivilizationDataRes>) {
+        civilizationDao.upsert( civilizations.map { it.toCivilization() })
     }
 }

@@ -25,7 +25,7 @@ object DbManager {
 
 abstract class AppDb: RoomDatabase() {
     companion object{
-        const val DATABASE_NAME = "ex_4.db"
+        const val DATABASE_NAME = "ex_5.db"
         const val DATABASE_VERSION = 1
     }
 

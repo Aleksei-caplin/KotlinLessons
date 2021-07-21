@@ -13,8 +13,8 @@ data class Civilization(
     val expansion: String,
     val army_type: String,
     val team_bonus: String,
-    @Embedded(prefix = "warrior_")
-    val unique_unit: Warrior,
+    //@Embedded(prefix = "warrior_")
+    //val unique_unit: Warrior,
 )
 
 data class Warrior(
