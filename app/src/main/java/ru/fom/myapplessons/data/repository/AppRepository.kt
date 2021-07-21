@@ -13,7 +13,7 @@ object AppRepository: IAppRepository {
     override suspend fun getCivilisations(): Int {
         val items = network.getCivilizationList()
         //if( items.isNotEmpty() ) InsertCivilizationsToDb(items)
-        return items.size
+        return items.civilizations.size
     }
 
     override suspend fun insertCivilizationsToDb(civilizations: List<Civilization>) {
