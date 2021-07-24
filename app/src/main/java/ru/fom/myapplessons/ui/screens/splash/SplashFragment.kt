@@ -14,6 +14,7 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import ru.fom.myapplessons.R
+import ru.fom.myapplessons.databinding.FragmentSplashBinding
 import ru.fom.myapplessons.ui.RootActivity
 import ru.fom.myapplessons.ui.screens.civilisations.CivilizationFragment
 
@@ -23,20 +24,20 @@ class SplashFragment : Fragment() {
     private val lottieView: LottieAnimationView
         get() = requireView().findViewById(R.id.lottieViw)
 
+    private var _binding: FragmentSplashBinding? = null
+    private val binding get() = _binding!!
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-
-        return inflater.inflate(R.layout.fragment_splash, container, false)
+        _binding = FragmentSplashBinding.inflate(inflater, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        val action = R.id.action_splashFragment_to_civilizationFragment
-        val nv = this.findNavController()
 
         lottieView.setAnimation(R.raw.winter_train)
         lottieView.playAnimation()
@@ -44,12 +45,12 @@ class SplashFragment : Fragment() {
             val progress = (valueAnimator.animatedValue as Float * 100).toInt()
             //Log.d("M_fff", progress.toString())
             if(progress == 98) {
-                nv.navigate(action)
+                //nv.navigate(action)
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(R.id.container, CivilizationFragment.newInstance())
+                    .commit()
             }
         }
-
-
-
     }
 
 }

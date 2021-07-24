@@ -36,12 +36,6 @@ class RootActivity : AppCompatActivity() {
         binding = ActivityRootBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setSupportActionBar(binding.toolbar)
-
-        CoroutineScope(Dispatchers.Unconfined).launch {
-            repo.getCivilisations()
-        }
-
-
     }
 
     override fun onStart() {
