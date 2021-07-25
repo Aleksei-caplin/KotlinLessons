@@ -39,16 +39,16 @@ class SplashFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val action = R.id.action_splashFragment_to_civilizationFragment
+        val nv = this.findNavController()
+
         lottieView.setAnimation(R.raw.winter_train)
         lottieView.playAnimation()
         lottieView.addAnimatorUpdateListener { valueAnimator ->
             val progress = (valueAnimator.animatedValue as Float * 100).toInt()
             //Log.d("M_fff", progress.toString())
-            if(progress == 98) {
-                //nv.navigate(action)
-                requireActivity().supportFragmentManager.beginTransaction()
-                    .replace(R.id.container, CivilizationFragment.newInstance())
-                    .commit()
+            if(progress >= 98) {
+                nv.navigate(action)
             }
         }
     }

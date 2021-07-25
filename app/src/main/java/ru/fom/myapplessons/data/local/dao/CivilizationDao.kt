@@ -20,7 +20,7 @@ interface CivilizationDao: BaseDao<Civilization> {
     fun addCivilization(vararg civilization: Civilization)
 
     // добавление списка записей
-    suspend fun upsert(list: List<Civilization>) {
+    fun upsert(list: List<Civilization>) {
         insert(list)
             .mapIndexed { index, recordResult -> if(recordResult == -1L) list[index] else null}
             .filterNotNull()

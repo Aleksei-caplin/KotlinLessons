@@ -25,9 +25,6 @@ class CivilizationFragment : Fragment() {
     private val binding get() = _binding!!
     private val viewModel: CivilizationViewModel by viewModels()
 
-    companion object {
-        fun newInstance() = CivilizationFragment()
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -36,10 +33,13 @@ class CivilizationFragment : Fragment() {
     ): View {
         _binding = FragmentCivilizationBinding.inflate(inflater, container, false)
         return  binding.root
+        //return inflater.inflate(R.layout.fragment_civilization, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val res = viewModel.state
+        Log.d("M_fff", res.toString())
     }
 }
