@@ -21,7 +21,7 @@ class RootActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var layoutDrawer: DrawerLayout
     private lateinit var navView: NavigationView
-    private lateinit var navController: NavController
+    lateinit var navController: NavController
 
     val repo = AppRepository
     val tt = listOf<CivilizationDataRes>()
