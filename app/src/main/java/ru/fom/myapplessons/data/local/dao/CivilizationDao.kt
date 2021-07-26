@@ -30,4 +30,6 @@ interface CivilizationDao: BaseDao<Civilization> {
     // удаление записи
     @Delete
     fun deleteItem(vararg civilization: Civilization)
+
+
 }

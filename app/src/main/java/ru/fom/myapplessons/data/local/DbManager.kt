@@ -25,9 +25,10 @@ object DbManager {
 
 abstract class AppDb: RoomDatabase() {
     companion object{
-        const val DATABASE_NAME = "ex_5.db"
+        const val DATABASE_NAME = "ext_1.db"
         const val DATABASE_VERSION = 1
     }
 
     abstract fun civilizationDao(): CivilizationDao
+    //abstract fun findCivilizations(): CivilizationDao
 }

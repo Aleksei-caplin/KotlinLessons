@@ -7,6 +7,7 @@ import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
 import ru.fom.myapplessons.AppConfig
 import java.util.*
@@ -32,6 +33,7 @@ object NetworkManager {
         //retrofit
         val retrofit = Retrofit.Builder()
             .client(client)
+            .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
             .addConverterFactory(MoshiConverterFactory.create(moshi))
             .baseUrl(AppConfig.BASE_URL)
             .build()

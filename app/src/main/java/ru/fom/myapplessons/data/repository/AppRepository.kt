@@ -1,11 +1,10 @@
 package ru.fom.myapplessons.data.repository
 
+
 import android.util.Log
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.core.Scheduler
-import io.reactivex.rxjava3.core.Single
-import io.reactivex.rxjava3.schedulers.Schedulers
-import io.reactivex.rxjava3.schedulers.Schedulers.io
+import io.reactivex.Single
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import ru.fom.myapplessons.data.local.DbManager.db
 import ru.fom.myapplessons.data.local.entities.Civilization
 import ru.fom.myapplessons.data.remote.NetworkManager
@@ -29,17 +28,17 @@ object AppRepository: IAppRepository {
         return items.civilizations.size
     }*/
 
-    override fun getCivilizationsByRx(): Single<CivilizationList> =
+    override fun getCivilizationsByRx(): Single<List<Civilization>> =
         network.getCivilizationList()
             .doOnSuccess {
                 civ: CivilizationList ->
                     if(civ.civilizations.isNotEmpty()) insertCivilizationsToDb(civ.civilizations)
-                    Log.e("M_error_rx", "ggg")
 
             }
             .doOnError {
                 Log.e("M_error_rx", it.message.toString())
             }
+            .flatMap { Single.just(civilizationDao.findCivilizations()) }
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
 
@@ -48,4 +47,10 @@ object AppRepository: IAppRepository {
     override fun insertCivilizationsToDb(civilizations: List<CivilizationDataRes>) {
         civilizationDao.upsert( civilizations.map { it.toCivilization() })
     }
+
+    override fun getCivilizationsFromDB(): List<Civilization> {
+        TODO("Not yet implemented")
+    }
+
+
 }

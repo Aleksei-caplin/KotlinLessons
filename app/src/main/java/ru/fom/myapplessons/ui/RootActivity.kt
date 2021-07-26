@@ -1,8 +1,7 @@
 package ru.fom.myapplessons.ui
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
@@ -11,12 +10,8 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 import ru.fom.myapplessons.R
 import ru.fom.myapplessons.data.remote.res.CivilizationDataRes
-import ru.fom.myapplessons.data.remote.res.CivilizationList
 import ru.fom.myapplessons.data.repository.AppRepository
 import ru.fom.myapplessons.databinding.ActivityRootBinding
 
