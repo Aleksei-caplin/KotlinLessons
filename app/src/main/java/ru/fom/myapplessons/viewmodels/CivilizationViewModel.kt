@@ -1,11 +1,7 @@
 package ru.fom.myapplessons.viewmodels
 
-import android.annotation.SuppressLint
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.schedulers.Schedulers
 import ru.fom.myapplessons.data.repository.AppRepository
 import ru.fom.myapplessons.ui.state.MainState
 
@@ -17,12 +13,27 @@ class CivilizationViewModel: BaseViewModel() {
     val state: LiveData<MainState>
         get() = action
 
+
+
     init {
+        //actualDbSettings()
         loadCivilizations()
     }
 
-    @SuppressLint("CheckResult")
-    fun loadCivilizations() {
+    /*private fun actualDbSettings() =
+        repository.getSettingsByRx()
+            .doOnSubscribe {  }
+            .subscribe({
+                val newState = MainState.AppSettings(it)
+                action.value = newState
+
+            }, {
+                Log.d("M_sett_m_error", it.message.toString())
+            })*/
+
+
+
+    private fun loadCivilizations() =
         repository.getCivilizationsByRx()
             .doOnSubscribe { action.value = defaultState }
             .subscribe({
@@ -30,9 +41,8 @@ class CivilizationViewModel: BaseViewModel() {
                 action.value = newState
             }, {
                 action.value = MainState.Error("Что-то пошло не по плану", it)
-                it.printStackTrace()
             })
-    }
+
 
 
 }

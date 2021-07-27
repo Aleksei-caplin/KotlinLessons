@@ -1,5 +1,7 @@
 package ru.fom.myapplessons.ui
 
+import android.content.Context
+import android.net.ConnectivityManager
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
@@ -11,9 +13,8 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.navigation.NavigationView
 import ru.fom.myapplessons.R
-import ru.fom.myapplessons.data.remote.res.CivilizationDataRes
-import ru.fom.myapplessons.data.repository.AppRepository
 import ru.fom.myapplessons.databinding.ActivityRootBinding
+
 
 class RootActivity : AppCompatActivity() {
 
@@ -22,9 +23,6 @@ class RootActivity : AppCompatActivity() {
     private lateinit var layoutDrawer: DrawerLayout
     private lateinit var navView: NavigationView
     lateinit var navController: NavController
-
-    val repo = AppRepository
-    val tt = listOf<CivilizationDataRes>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -53,6 +51,12 @@ class RootActivity : AppCompatActivity() {
 
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
+    }
+
+    private fun isOnline(context: Context): Boolean {
+        val cm = context.getSystemService(CONNECTIVITY_SERVICE) as ConnectivityManager
+        val netInfo = cm.activeNetworkInfo
+        return netInfo != null && netInfo.isConnectedOrConnecting
     }
 
 

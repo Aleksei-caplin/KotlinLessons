@@ -34,19 +34,13 @@ class SplashFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
-
-
         CoroutineScope(Dispatchers.Main).launch {
             lottieView.setAnimation(R.raw.winter_train)
             lottieView.playAnimation()
             lottieView.addAnimatorUpdateListener { valueAnimator ->
                 val progress = (valueAnimator.animatedValue as Float * 100).toInt()
-                //Log.d("M_fff", progress.toString())
                 if(progress >= 98) {
-                    //nv.navigate(action)
                     (activity as RootActivity).navController.navigate(R.id.civilizationFragment)
-                    //Navigation.findNavController(binding.root)
                 }
             }
         }
