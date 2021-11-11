@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Пробуем работать с картами</string>
+    <string name="mapbox_access_token">pk.eyJ1IjoiYWxleC10cmEtdGEtdGEiLCJhIjoiY2t2dWNnY3lyNTYxajJwcTV5bHNjYXN3ZiJ9.BbNiEFHTLq5jpeTWZDgZMg</string>
 </resources>
